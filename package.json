@@ -1,0 +1,24 @@
+{
+  "name": "evergreen",
+  "version": "1.0.0",
+  "description": "An alternative genesis frontend",
+  "main": "server/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shrey719/evergreen.git"
+  },
+  "author": "Shrey Yadav",
+  "license": "AGPL-3.0-only",
+  "bugs": {
+    "url": "https://github.com/Shrey719/evergreen/issues"
+  },
+  "homepage": "https://github.com/Shrey719/evergreen#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
