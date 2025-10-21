@@ -29,7 +29,7 @@ export default defineConfig({
 						}
 					}
 				]
-			}
+			},
 		]
 	},
 	plugins: [new rspack.HtmlRspackPlugin({ template: "./index.html" })],

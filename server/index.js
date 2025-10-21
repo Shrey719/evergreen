@@ -11,4 +11,4 @@ app.use("/epoxy/", express.static(epoxyPath));
 
 app.use(express.static("dist"))
 
-app.listen(8000, () => {console.log("on port 8000")})
+app.listen(3000, () => {console.log("on port 3000")})

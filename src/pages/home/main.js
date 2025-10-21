@@ -1,5 +1,5 @@
 function Home() {
-    return html``
+  return html``;
 }
 
-export default Home
+export default Home;

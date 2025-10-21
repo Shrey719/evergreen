@@ -1,81 +1,97 @@
-function Login(){ 
+function Login() {
+  const loginWrapper = css`
+    position: absolute;
+    top: 40%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+  `;
 
-    let loginscreen = css`
+  const heading = css`
+    display: block;
+    font-size: 2.5rem;
+    margin-top: 5vh;
+    text-align: center;
+  `;
 
-        position: absolute;
-        top: 40%;
-        left: 55%;
-        transform: translate(-50%, -50%);
-    `
+  const infoText = css`
+    display: block;
+    font-size: calc(3px + 1vh);
+    width: 50%;
+  `;
 
-    let info = css`
-        color: white; 
-        font-size: calc(3px + 1vh);
-        width: 50%;
-        display: block;
-        margin
-    `
+  const inputField = css`
+    background-color: rgba(255, 255, 255, 0.16);
+    border: 2px solid rgba(255, 255, 255, 0.30);
+    border-radius: 5px;
+    color: white;
+    height: 5%;
+    padding: 2% 1%;
+    user-select: none;
+    width: 75%;
 
-    let button = css`
-        background-color: rgba(255, 255, 255, 0.16);
-        border: 1px solid black;
-        width: 75%;
-        height: 5%;
-        padding-left: 1%;
-        padding-top: 2%;
-        padding-bottom: 2%;
-        border-radius: 5px;
+    transition: border 0.3s ease-in-out;
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.30);
+    }
 
-        ::placeholder {
-            color: white;
-        }
-        color: white;
+    &:focus {
+      border: 2px solid rgba(165, 79, 250, 0.8);;
+      box-shadow: none;
+      outline: none;
+    }
+  `;
 
-        & :focus {
-            outline: none;
-            border: none;
-        }
-    `
+  const loginButton = css`
+    background-color: rgba(255, 255, 255, 0.16);
+    border: 1px solid black;
+    border-radius: 5px;
+    color: white;
+    height: 7vh;
+    text-align: center;
+    width: 77%;
+  `;
 
-    let realbutton = css`
-        width: 77%;
-        height: 7vh;
-        background-color: rgba(255, 255, 255, 0.16);
-        border-radius: 5px;
-        border: 1px solid black;
-        text-align: center;
-        color: white;
-    `
+  return html`
+    <span class=${heading}>evergreen</span>
 
-    let heading = css`
-        font-size: 2.5rem;
-        display: block;
-        margin-top: 5vh;
-        text-align: center;
-    `
-    return html`
-        <span class=${heading}> evergreen </span>
-        <div class=${loginscreen}>
-            <h1>Login to Genesis</h1>
+    <div class=${loginWrapper}>
+      <h1>Login to Genesis</h1>
 
+      <label>Genesis Username</label><br />
+      <input class=${inputField} placeholder="Email / Username" id="uname"/><br /><br />
 
-            <span>Genesis Username</span><br>
-            <input class=${button} placeholder="Email/Username"></input><br><br>
+      <label>Genesis Password</label><br />
+      <input
+        class=${inputField}
+        placeholder="Password"
+        type="password"
+        id="pass"
+      /><br /><br />
 
-            <span>Genesis Password</span><br>
-            <input class=${button} placeholder="Password"></input><br><br>
+      <label>Genesis District</label><br />
+      <input class=${inputField} placeholder="District Domain" id="domain"/><br /><br />
 
-            <span>Genesis District</span><br>
-            <input class=${button} placeholder="District Domain"></input><br><br>
+      <span class=${infoText}>
+        Your data is only stored on your device. Our proxy server can never see
+        any Genesis information, including your passwords. You can clear this
+        data at any time.
+      </span>
+      <br /><br />
 
-            <span class=${info}>
-            Your data is only stored on your device. Our proxy server can never see any information on your genesis, including your passwords. You can clear this data at any time.
-            </span><br>
-
-            <button class=${realbutton}>Login</button>
-        </div>
-
-    `
+      <button class=${loginButton} on:click=${sendlogin}>Login</button>
+    </div>
+  `;
 }
 
-export default Login
+function sendlogin() {
+    let info = {
+        "user": document.getElementById("uname").value,
+        "pass": document.getElementById("pass").value,
+        "domain": document.getElementById("domain").value
+        }
+    
+    // TODO - actual login system
+    
+}
+
+export default Login;
