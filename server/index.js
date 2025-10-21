@@ -1,11 +1,14 @@
-import express from 'express'
+import { baremuxPath } from "@mercuryworkshop/bare-mux/node";
+import { epoxyPath } from "@mercuryworkshop/epoxy-transport";
+import  express  from "express"
 
-const PORT = 8080
+const app = express()
 
-let app = express()
 
-app.use(express.static("client"))
+app.use("/baremux/", express.static(baremuxPath));
+app.use("/epoxy/", express.static(epoxyPath));
 
-app.listen(PORT, ()=> {
-    console.log(`Listening on port ${PORT}`)
-})
+
+app.use(express.static("dist"))
+
+app.listen(8000, () => {console.log("on port 8000")})
